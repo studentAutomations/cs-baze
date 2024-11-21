@@ -1,50 +1,63 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 import time
 from bs4 import BeautifulSoup
+import os
 
-browser_driver = Service('usr/lib/chromium-browser/chromedriver')
+# Set up Chrome options for headless operation
+chrome_options = Options()
+chrome_options.add_argument("--headless")  # Run Chrome in headless mode
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.binary_location = "/usr/bin/chromium-browser"  # Set the path to the Chromium binary
 
-page_to_scrape = webdriver.Chrome(service=browser_driver)
-page_to_scrape.get("https://cs.elfak.ni.ac.rs/nastava/")
+# Path to the ChromeDriver executable
+browser_driver = Service('/usr/bin/chromedriver')
 
-page_to_scrape.find_element(By.LINK_TEXT, "Log in").click()
+# Initialize the WebDriver with options
+page_to_scrape = webdriver.Chrome(service=browser_driver, options=chrome_options)
 
-time.sleep(5)
+try:
+    # Navigate to the page and perform login actions
+    page_to_scrape.get("https://cs.elfak.ni.ac.rs/nastava/")
+    page_to_scrape.find_element(By.LINK_TEXT, "Log in").click()
+    time.sleep(5)
 
-page_to_scrape.find_element(By.LINK_TEXT, "OpenID Connect").click()
+    page_to_scrape.find_element(By.LINK_TEXT, "OpenID Connect").click()
+    time.sleep(5)
 
-time.sleep(5)
+    mail = page_to_scrape.find_element(By.ID, "i0116")
+    mail.send_keys(os.environ['MAIL'])  # Use environment variable for email
+    page_to_scrape.find_element(By.ID, "idSIButton9").click()
+    time.sleep(5)
 
-mail = page_to_scrape.find_element(By.ID, "i0116")
-mail.send_keys(MAIL)
-page_to_scrape.find_element(By.ID, "idSIButton9").click()
-time.sleep(5)
+    password = page_to_scrape.find_element(By.ID, "i0118")
+    password.send_keys(os.environ['PASSWORD'])  # Use environment variable for password
+    page_to_scrape.find_element(By.ID, "idSIButton9").click()
+    time.sleep(5)
 
+    page_to_scrape.find_element(By.ID, "idBtn_Back").click()
+    time.sleep(5)
 
-password = page_to_scrape.find_element(By.ID, "i0118")
-password.send_keys(PASSWORD)
-page_to_scrape.find_element(By.ID, "idSIButton9").click()
-time.sleep(5)
+    page_to_scrape.find_element(By.ID, "random673f8f2a516cf12_label_3_19").click()
+    time.sleep(5)
 
-page_to_scrape.find_element(By.ID, "idBtn_Back").click()
-time.sleep(5)
+    page_to_scrape.find_element(By.CLASS_NAME, "instancename").click()
+    time.sleep(5)
 
-page_to_scrape.find_element(By.ID, "random673f8f2a516cf12_label_3_19").click()
-time.sleep(5)
+    responseT = page_to_scrape.find_element(By.ID, "discussion-list-673f8fb631cf3673f8fb606ae088")
 
-page_to_scrape.find_element(By.CLASS_NAME, "instancename").click()
-time.sleep(5)
+    # Use BeautifulSoup to parse the HTML content
+    html = BeautifulSoup(responseT.get_attribute('innerHTML'), 'html.parser')
+    
+    novosti_markdown = html.text  # Extract text or format as needed
 
-responseT = page_to_scrape.find_element(By.ID, "discussion-list-673f8fb631cf3673f8fb606ae088")
+    # Write output to a markdown file
+    with open("novosti.md", "w") as novosti_file:
+        novosti_file.write(novosti_markdown)
 
-
-
-html = BeautifulSoup(responseT.text, 'html.parser')
-
-
-novosti_markdown = newText.text
-
-with open("novosti.md", "w") as novosti_file:
-    novosti_file.write(novosti_markdown)
+finally:
+    # Clean up by quitting the driver
+    page_to_scrape.quit()
