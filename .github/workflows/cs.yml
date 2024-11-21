@@ -32,8 +32,9 @@ jobs:
 
       - name: Main py
         run: python main.py
-        MAIL: ${{ secrets.MAIL }}
-        PASSWORD: ${{ secrets.PASSWORD }}
+        env:
+          MAIL: ${{ secrets.MAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
