@@ -47,7 +47,7 @@ try:
     page_to_scrape.find_element(By.CLASS_NAME, "instancename").click()
     time.sleep(5)
 
-    responseT = page_to_scrape.find_element(By.ID, "discussion-list-673f8fb631cf3673f8fb606ae088")
+    responseT = page_to_scrape.find_element(By.XPATH, "/span[text()='News forum']")
 
     # Use BeautifulSoup to parse the HTML content
     html = BeautifulSoup(responseT.get_attribute('innerHTML'), 'html.parser')
