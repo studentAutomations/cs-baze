@@ -50,7 +50,7 @@ try:
     time.sleep(5)
 
 
-    responseT = page_to_scrape.find_element(By.ID, "discussion-list-673f9d073c9d6673f9d071216288")
+    responseT = page_to_scrape.find_element(By.ID, "region-main")
 
    
     
