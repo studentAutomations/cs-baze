@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 import time
 from bs4 import BeautifulSoup
 
-browser_driver = Service('usr/lib/chromium-browser/chrome')
+browser_driver = Service('usr/lib/chromium-browser/chromedriver')
 
 page_to_scrape = webdriver.Chrome(service=browser_driver)
 page_to_scrape.get("https://cs.elfak.ni.ac.rs/nastava/")
