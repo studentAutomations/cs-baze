@@ -3,7 +3,6 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 import time
-from bs4 import BeautifulSoup
 import os
 
 # Set up Chrome options for headless operation
@@ -47,12 +46,15 @@ try:
     page_to_scrape.find_element(By.CLASS_NAME, "instancename").click()
     time.sleep(5)
 
-    responseT = page_to_scrape.find_element(By.XPATH, "/span[text()='News forum']")
+    responseT = page_to_scrape.find_element(By.ID, "module-104").click()
+    time.sleep(5)
 
-    # Use BeautifulSoup to parse the HTML content
-    html = BeautifulSoup(responseT.get_attribute('innerHTML'), 'html.parser')
+
+    responseT = page_to_scrape.find_element(By.ID, "discussion-list-673f9d073c9d6673f9d071216288")
+
+   
     
-    novosti_markdown = html.text  # Extract text or format as needed
+    novosti_markdown = responseT.text  # Extract text or format as needed
 
     # Write output to a markdown file
     with open("novosti.md", "w") as novosti_file:
