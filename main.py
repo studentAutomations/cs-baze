@@ -41,7 +41,7 @@ try:
     page_to_scrape.find_element(By.ID, "idBtn_Back").click()
     time.sleep(5)
 
-    page_to_scrape.find_element(By.ID, "random673f8f2a516cf12_label_3_19").click()
+    page_to_scrape.find_element(By.LINK_TEXT, "Baze").click()
     time.sleep(5)
 
     page_to_scrape.find_element(By.CLASS_NAME, "instancename").click()
