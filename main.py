@@ -18,13 +18,13 @@ page_to_scrape.find_element(By.LINK_TEXT, "OpenID Connect").click()
 time.sleep(5)
 
 mail = page_to_scrape.find_element(By.ID, "i0116")
-mail.send_keys("MAIL")
+mail.send_keys('MAIL')
 page_to_scrape.find_element(By.ID, "idSIButton9").click()
 time.sleep(5)
 
 
 password = page_to_scrape.find_element(By.ID, "i0118")
-password.send_keys("PASSWORD")
+password.send_keys('PASSWORD')
 page_to_scrape.find_element(By.ID, "idSIButton9").click()
 time.sleep(5)
 
