@@ -48,7 +48,7 @@ try:
     time.sleep(5)
 
 
-    responseT = page_to_scrape.find_element(By.XPATH, "//*[@id="region-main"]")
+    responseT = page_to_scrape.find_element(By.XPATH, '//*[@id="region-main"]')
 
    
     
