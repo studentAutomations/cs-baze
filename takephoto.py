@@ -44,10 +44,10 @@ try:
     time.sleep(5)
 
     page_to_scrape.find_element(By.CLASS_NAME, "instancename").click()
-    time.sleep(10)
+    time.sleep(30)
 
 
-    responseT = page_to_scrape.find_element(By.CLASS_NAME, "discussion-list")
+    responseT = page_to_scrape.find_element(By.CLASS_NAME, "table.discussion-list")
     responseT.screenshot('cs-baze-nova-obavestenja.png')
 
 finally:
