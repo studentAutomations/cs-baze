@@ -43,7 +43,7 @@ try:
     page_to_scrape.find_element(By.LINK_TEXT, "Baze").click()
     time.sleep(5)
 
-    page_to_scrape.find_element(By.LINK_TEXT, "News forum").click()
+    page_to_scrape.find_element(By.CLASS_NAME, "instancename").click()
     time.sleep(5)
 
 
