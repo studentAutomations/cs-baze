@@ -43,7 +43,7 @@ try:
     page_to_scrape.find_element(By.LINK_TEXT, "Baze").click()
     time.sleep(5)
 
-    page_to_scrape.find_element(By.LINK_TEXT, "Diskusija o predmetu Forum").click()
+    page_to_scrape.find_element(By.xpath("//a[@href='https://cs.elfak.ni.ac.rs/nastava/mod/forum/view.php?id=179']").click()
     time.sleep(5)
 
 
