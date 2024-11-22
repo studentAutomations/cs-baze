@@ -1,2 +1,4 @@
-selenium==4.11.2
+beautifulsoup4==4.12.2
+Requests==2.28.2
 dhooks
+selenium==4.11.2
