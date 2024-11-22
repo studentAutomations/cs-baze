@@ -1,4 +1,4 @@
-name: cs baze scraper
+name: diskusija scraper
 
 on: [workflow_dispatch]
 
