@@ -1,7 +1,7 @@
 News forum
 General news and announcements
 1
-(current)
+(current) 
 2
 3 
 4
