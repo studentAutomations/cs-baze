@@ -43,7 +43,7 @@ try:
     page_to_scrape.find_element(By.LINK_TEXT, "Baze").click()
     time.sleep(5)
 
-    page_to_scrape.find_element(By.LINK_TEXT, "Diskusija o predmetu").click()
+    page_to_scrape.find_element(By.LINK_TEXT, "Diskusija o predmetu Forum").click()
     time.sleep(5)
 
 
