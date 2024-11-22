@@ -47,7 +47,7 @@ try:
     time.sleep(5)
 
 
-        responseT = page_to_scrape.find_element(By.CLASS_NAME, "discussion-list")
+        responseT = page_to_scrape.find_element(By.ID, "region-main")
 
     # Get the size of the element
     height = responseT.size['height']
