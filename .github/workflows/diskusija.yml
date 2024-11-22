@@ -46,7 +46,7 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Update novosti.md
+          commit_message: Update novosti1.md
         id: auto-commit-action
 
       - name: Discord bot notification
