@@ -52,3 +52,7 @@ try:
 
     responseT = page_to_scrape.find_element(By.ID, "region-main")
     responseT.screenshot('cs-baze-nova-obavestenja.png')
+
+finally:
+    # Clean up by quitting the driver
+    page_to_scrape.quit()
