@@ -43,7 +43,8 @@ try:
     page_to_scrape.find_element(By.LINK_TEXT, "Baze").click()
     time.sleep(5)
 
-    page_to_scrape.find_element(By.CLASS_NAME, "instancename").click()
+    link_element = page_to_scrape.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/div[1]/section/div/div/ul/li[1]/div[3]/ul/li[1]/div/div/div[2]/div/a")
+    link_element.click()
     time.sleep(5)
 
 
