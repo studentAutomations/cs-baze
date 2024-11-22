@@ -2,7 +2,7 @@ name: cs baze scraper
 
 on:
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '0 */1 * * *'
 
 jobs:
   build:
@@ -36,6 +36,12 @@ jobs:
           MAIL: ${{ secrets.MAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
 
+      - name: Delete photo
+        run: python removephoto.py
+
+      - name: Take photo
+        run: python takephoto.py
+
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
@@ -46,4 +52,4 @@ jobs:
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
         env:
           WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
-        run: python discord.py
+        run: python discordBOT.py
