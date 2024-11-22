@@ -62,7 +62,7 @@ try:
     page_to_scrape.execute_script("arguments[0].scrollIntoView(true);", responseT)
 
     # Take a screenshot of the entire element
-    responseT.screenshot('cs-lp-nova-obavestenja.png')
+    responseT.screenshot('cs-bp-nova-obavestenja.png')
 
 finally:
     # Clean up by quitting the driver
