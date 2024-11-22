@@ -47,7 +47,7 @@ try:
     time.sleep(5)
 
     page_to_scrape.find_element(By.LINK_TEXT, "News forum").click()
-    time.sleep(5)
+    time.sleep(10)
 
 
     responseT = page_to_scrape.find_element(By.CLASS_NAME, "discussion-list")
