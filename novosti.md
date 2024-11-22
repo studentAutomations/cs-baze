@@ -659,7 +659,7 @@ Jump to...
                     Smerovi US, T i E - rezultati januarskog ispitnog roka 2024
                     Rezultati kolokvijuma P2 - smerovi US, T i E, 2023-2024
                     Rezultati kolokvijuma P1 - smerovi US, T i E, 2023-2024
-                    1. ER dijagrami
+                    1. ER dijagrami 
                     2. ER dijagrami - Tutorijali
                     ER dijagrami - Tutorijali (rešenja)
                     3. Prevodjenje ER modela u relacioni model
