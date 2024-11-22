@@ -13,9 +13,9 @@ embed = Embed(
 image1 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOmPtpzziqcXbG795QYLmYvJl6G6CcyKbKHA&s'
 image2 = 'https://github.com/studentAutomations/cs-baze/blob/main/cs-baze-nova-obavestenja.png'
 
-embed.set_author(name='CS Baze')
-embed.add_field(name='Nova obaveštenja', value='https://cs.elfak.ni.ac.rs/nastava/')
-embed.add_field(name='Photo ==>', value=image2)
+embed.set_author(name='Nova obavestenja na CS-u')
+embed.add_field(name='Idi ba sajt - ', value='https://cs.elfak.ni.ac.rs/nastava/')
+embed.add_field(name='Vidi obavestenja - ', value=image2)
 embed.set_footer(text='Elektronski Fakultet')
 embed.set_thumbnail(image1)
 
