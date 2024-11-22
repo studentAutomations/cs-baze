@@ -48,7 +48,7 @@ try:
     time.sleep(5)
 
 
-    responseT = page_to_scrape.find_element(By.ID, "region-main")
+    responseT = page_to_scrape.find_element(By.XPATH, "//*[@id="region-main"]")
 
     # Get the size of the element
     height = responseT.size['height']
