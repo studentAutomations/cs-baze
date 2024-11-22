@@ -50,5 +50,5 @@ try:
     time.sleep(5)
 
 
-    responseT = page_to_scrape.find_element(By.ID, "region-main"
+    responseT = page_to_scrape.find_element(By.ID, "region-main")
     responseT.screenshot('cs-baze-nova-obavestenja.png')
