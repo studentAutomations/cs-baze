@@ -10,6 +10,8 @@ embed = Embed(
     timestamp='now'
 )
 
+hook.send('@everyone')
+
 image1 = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOmPtpzziqcXbG795QYLmYvJl6G6CcyKbKHA&s'
 image2 = 'https://github.com/studentAutomations/cs-baze/blob/main/cs-baze1-nova-obavestenja.png'
 
