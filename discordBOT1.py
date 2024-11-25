@@ -2,7 +2,7 @@ import os
 from dhooks import Webhook, Embed, File
 
 # Get the webhook URL from environment variable
-WEBHOOK_URL = [os.getenv('WEBHOOK_MAIN'), os.getenv('WEBHOOK_OTHER1')]
+WEBHOOK_URL = [os.getenv('WEBHOOK_MAIN')]
 
 
 for url in WEBHOOK_URL:
