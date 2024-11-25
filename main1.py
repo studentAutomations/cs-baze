@@ -55,8 +55,8 @@ try:
     novosti_markdown = responseT.text  # Extract text or format as needed
 
     # Write output to a markdown file
-    with open("novosti1.md", "w") as novosti_file:
-        novosti_file.write(novosti_markdown)
+    with open("novosti1.md", "w") as novosti1_file:
+        novosti1_file.write(novosti_markdown)
 
 finally:
     # Clean up by quitting the driver
