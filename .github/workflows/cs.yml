@@ -34,20 +34,23 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
         run: python main.py
 
-      - name: Delete photo
-        run: python removephoto.py
-
-      - name: Take photo
-        env:
-          MAIL: ${{ secrets.MAIL }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-        run: python takephoto.py
-
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update novosti.md
         id: auto-commit-action
+
+      - name: Delete photo
+        if: steps.auto-commit-action.outputs.changes_detected == 'true'
+        run: python removephoto.py
+
+      - name: Take photo
+        if: steps.auto-commit-action.outputs.changes_detected == 'true'
+        env:
+          MAIL: ${{ secrets.MAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+        run: python takephoto.py
+
 
       - name: Discord bot notification
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
