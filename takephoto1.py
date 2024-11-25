@@ -54,13 +54,13 @@ try:
     height = responseT.size['height']
     width = responseT.size['width']
 
-    # Set a larger window size (you can adjust these values as needed)
+     # Set a larger window size (you can adjust these values as needed)
     # Here we set a fixed width that is larger than what might be needed.
-    #desired_width = max(width, 1200)  # Ensure at least 1200px width
+    desired_width = max(width, 1200)  # Ensure at least 1200px width
 
     desired_height = min(height, 500)
 
-    page_to_scrape.set_window_size(width, desired_height)  # Adding some extra space
+    page_to_scrape.set_window_size(desired_width, desired_height)  # Adding some extra space
 
     # Scroll to make sure the element is visible in case it's off-screen
     page_to_scrape.execute_script("arguments[0].scrollIntoView(true);", responseT)
