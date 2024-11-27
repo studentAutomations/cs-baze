@@ -1,6 +1,6 @@
 name: diskusija scraper
 
-on:
+on: 
   schedule:
     - cron: '*/5 * * * *'
 
@@ -22,10 +22,9 @@ jobs:
 
       - name: Install Chromium manually
         run: |
-          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
-          echo "CHROME_BIN=/usr/bin/google-chrome" >> $GITHUB_ENV
-          google-chrome --version
+          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/google-chrome.deb
+          sudo apt-get install -y /tmp/google-chrome.deb
+
 
       - name: Install Python packages
         run: |
@@ -57,4 +56,4 @@ jobs:
         env:
           WEBHOOK_MAIN: ${{ secrets.WEBHOOK_MAIN }}
           WEBHOOK_OTHER1: ${{ secrets.WEBHOOK_OTHER1 }}
-        run: python discordBOT.py
+        run: python discordBOT1.py
