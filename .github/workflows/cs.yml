@@ -33,6 +33,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run main script
+        env:
+          MAIL: ${{ secrets.MAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: python main.py
 
       - name: Commit changes
