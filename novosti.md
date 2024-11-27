@@ -683,6 +683,7 @@ Jump to...
                     10. ADO.NET (1)
                     VIDEO_KLUB - Azuriranje podataka, pogledi i indeksi
                     VIDEO KLUB - Azuriranje podataka, pogledi i indeksi - Rešenja
+                    VIDEO KLUB - Azuriranje podataka, pogledi i indeksi - Kompletna rešenja
                     11. ADO.NET (2)
                     VIDEO_KLUB - ADO.NET (Command, DataReader)
                     Rešenja - VIDEO KLUB - ADO.NET (Command, DataReader)
