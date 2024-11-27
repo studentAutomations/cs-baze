@@ -46,6 +46,9 @@ jobs:
         run: python removephoto.py
 
       - name: Take photo
+        env:
+          MAIL: ${{ secrets.MAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
         run: python takephoto.py
 
