@@ -1,7 +1,7 @@
 import os
 
 
-photo_path = 'https://github.com/studentAutomations/cs-baze/blob/main/cs-baze-nova-obavestenja.png'  
+photo_path = 'cs-baze-nova-obavestenja.png'  
 
 
 if os.path.exists(photo_path):
