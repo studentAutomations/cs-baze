@@ -45,6 +45,13 @@ try:
 
     responseT = page_to_scrape.find_element(By.XPATH, '//*[@id="region-main"]')
 
+    height = responseT.size['height']
+    width = responseT.size['width']     
+    desired_width = max(width, 1200)  
+    desired_height = min(height, 1000)
+    page_to_scrape.set_window_size(desired_width, desired_height)     
+    page_to_scrape.execute_script("arguments[0].scrollIntoView(true);", responseT)  
+    responseT.screenshot('cs-baze1-nova-obavestenja.png')
     
 
 finally:
