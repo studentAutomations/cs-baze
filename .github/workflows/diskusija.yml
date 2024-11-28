@@ -18,13 +18,17 @@ jobs:
           python-version: '3.9'
 
       - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y wget gnupg unzip libnss3 libgconf-2-4
+        run: sudo apt-get update && sudo apt-get install -y libnss3 libgconf-2-4
 
-      - name: Install Chromium manually
+      - name: Verify Chromium and Chromedriver installation
         run: |
-          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O /tmp/google-chrome.deb
-          sudo apt-get install -y /tmp/google-chrome.deb
-
+          echo "Checking Chromium installation..."
+          google-chrome --version
+          which google-chrome
+          
+          echo "Checking Chromedriver installation..."
+          chromedriver --version
+          which chromedriver
 
       - name: Install Python packages
         run: |
@@ -40,14 +44,13 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Update novosti1.md
-        id: auto-commit-action
-
-      - name: Delete photo
-        if: steps.auto-commit-action.outputs.changes_detected == 'true'
-        run: python removephoto1.py
+          commit_message: Update novosti.md
+        id: auto-commit-action      
 
       - name: Take photo
+        env:
+          MAIL: ${{ secrets.MAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
         run: python takephoto1.py
 
