@@ -10,27 +10,36 @@ chrome_options = Options()
 chrome_options.add_argument("--headless")  
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--disable-dev-shm-usage")
-chrome_options.binary_location = "/usr/bin/google-chrome"  # Adjusted for GitHub runner
+chrome_options.binary_location = "/usr/bin/google-chrome"  
 
-browser_driver = Service('/usr/bin/chromedriver')  # Adjusted for GitHub runner
+browser_driver = Service('/usr/bin/chromedriver') 
 
 page_to_scrape = webdriver.Chrome(service=browser_driver, options=chrome_options)
 
 try:
-    wait = WebDriverWait(page_to_scrape, 10)  # Set an explicit wait timeout of 10 seconds
+    wait = WebDriverWait(page_to_scrape, 5)  
     
     page_to_scrape.get("https://cs.elfak.ni.ac.rs/nastava/")
-    wait.until(EC.element_to_be_clickable((By.LINK_TEXT, "Log in"))).click()
     
-    wait.until(EC.element_to_be_clickable((By.LINK_TEXT, "OpenID Connect"))).click()
+    log_in_link = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, "Log in")))
+    log_in_link.click()
+
     
+    openid_connect_link = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, "OpenID Connect")))
+    openid_connect_link.click()
+
     mail = wait.until(EC.presence_of_element_located((By.ID, "i0116")))
-    mail.send_keys(os.environ['MAIL'])  
-    page_to_scrape.find_element(By.ID, "idSIButton9").click()
-    
+    mail.send_keys(os.environ['MAIL'])
+
+    next_button = wait.until(EC.element_to_be_clickable((By.ID, "idSIButton9")))
+    next_button.click()
+
     password = wait.until(EC.presence_of_element_located((By.ID, "i0118")))
-    password.send_keys(os.environ['PASSWORD'])  
-    page_to_scrape.find_element(By.ID, "idSIButton9").click()
+    password.send_keys(os.environ['PASSWORD'])
+
+    sign_in_button = wait.until(EC.element_to_be_clickable((By.ID, "idSIButton9")))
+    sign_in_button.click()
+
     
     wait.until(EC.element_to_be_clickable((By.ID, "idBtn_Back"))).click()
     
