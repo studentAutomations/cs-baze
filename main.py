@@ -2,53 +2,49 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+import time
 import os
 
 chrome_options = Options()
 chrome_options.add_argument("--headless")  
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--disable-dev-shm-usage")
-chrome_options.binary_location = "/usr/bin/google-chrome"  
+chrome_options.binary_location = "/usr/bin/google-chrome"  # Updated for GitHub runner
 
-browser_driver = Service('/usr/bin/chromedriver') 
+browser_driver = Service('/usr/bin/chromedriver')  # Updated for GitHub runner
 
 page_to_scrape = webdriver.Chrome(service=browser_driver, options=chrome_options)
 
 try:
-    wait = WebDriverWait(page_to_scrape, 5)  
-    
     page_to_scrape.get("https://cs.elfak.ni.ac.rs/nastava/")
-    
-    log_in_link = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, "Log in")))
-    log_in_link.click()
+    page_to_scrape.find_element(By.LINK_TEXT, "Log in").click()
+    time.sleep(5)
 
-    
-    openid_connect_link = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, "OpenID Connect")))
-    openid_connect_link.click()
+    page_to_scrape.find_element(By.LINK_TEXT, "OpenID Connect").click()
+    time.sleep(5)
 
-    mail = wait.until(EC.presence_of_element_located((By.ID, "i0116")))
-    mail.send_keys(os.environ['MAIL'])
+    mail = page_to_scrape.find_element(By.ID, "i0116")
+    mail.send_keys(os.environ['MAIL'])  
+    page_to_scrape.find_element(By.ID, "idSIButton9").click()
+    time.sleep(5)
 
-    next_button = wait.until(EC.element_to_be_clickable((By.ID, "idSIButton9")))
-    next_button.click()
+    password = page_to_scrape.find_element(By.ID, "i0118")
+    password.send_keys(os.environ['PASSWORD'])  
+    page_to_scrape.find_element(By.ID, "idSIButton9").click()
+    time.sleep(5)
 
-    password = wait.until(EC.presence_of_element_located((By.ID, "i0118")))
-    password.send_keys(os.environ['PASSWORD'])
+    page_to_scrape.find_element(By.ID, "idBtn_Back").click()
+    time.sleep(5)
 
-    sign_in_button = wait.until(EC.element_to_be_clickable((By.ID, "idSIButton9")))
-    sign_in_button.click()
+    page_to_scrape.find_element(By.LINK_TEXT, "Baze").click()
+    time.sleep(5)
 
-    
-    wait.until(EC.element_to_be_clickable((By.ID, "idBtn_Back"))).click()
-    
-    wait.until(EC.element_to_be_clickable((By.LINK_TEXT, "Baze"))).click()
-    
-    link_element = wait.until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[2]/div/div[1]/section/div/div/ul/li[1]/div[3]/ul/li[1]/div/div/div[2]/div/a")))
+    link_element = page_to_scrape.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/div[1]/section/div/div/ul/li[1]/div[3]/ul/li[1]/div/div/div[2]/div/a")
     link_element.click()
-    
-    responseT = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="region-main"]')))
+    time.sleep(5)
+
+    responseT = page_to_scrape.find_element(By.XPATH, '//*[@id="region-main"]')
+
     novosti_markdown = responseT.text  
 
     with open("novosti.md", "w") as novosti_file:
