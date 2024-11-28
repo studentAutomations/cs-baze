@@ -40,9 +40,14 @@ try:
     link_element.click()
     
     responseT = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="region-main"]')))
-    responseT 
-
     
+    height = responseT.size['height']
+    width = responseT.size['width']     
+    desired_width = max(width, 1200)  
+    desired_height = min(height, 1000)
+    page_to_scrape.set_window_size(desired_width, desired_height)     
+    page_to_scrape.execute_script("arguments[0].scrollIntoView(true);", responseT)  
+    responseT.screenshot('cs-baze-nova-obavestenja.png')
 
 finally:
     page_to_scrape.quit()
