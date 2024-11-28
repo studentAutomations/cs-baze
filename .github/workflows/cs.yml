@@ -42,7 +42,7 @@ jobs:
         run: python main.py
 
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: studentAutomations/automatic-changes@v4
         with:
           commit_message: Update novosti.md
         id: auto-commit-action      
