@@ -1,3 +1,2 @@
 dhooks
 selenium==4.11.2
-Pillow
