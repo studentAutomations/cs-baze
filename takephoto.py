@@ -50,9 +50,11 @@ try:
 
     page_to_scrape.execute_script("arguments[0].scrollIntoView(true);", responseT)
 
-    page_to_scrape.save_screenshot('full_page_screenshot.png')
+    page_to_scrape.save_screenshot('cs-baze-nova-obavestenja.png')
 
     screenshot = page_to_scrape.get_screenshot_as_png()
+
+    image = Image.open(BytesIO(screenshot))
 
     from PIL import Image
     from io import BytesIO
