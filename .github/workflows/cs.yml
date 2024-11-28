@@ -1,6 +1,8 @@
 name: cs baze scraper
 
-on: [workflow_dispatch]
+on: 
+  schedule:
+    - cron: '*/5 * * * *'
 
 jobs:
   build:
