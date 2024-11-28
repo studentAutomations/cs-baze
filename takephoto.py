@@ -4,8 +4,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 import time
 import os
-from PIL import Image
-from io import BytesIO
 
 chrome_options = Options()
 chrome_options.add_argument("--headless")  
@@ -47,23 +45,13 @@ try:
 
     responseT = page_to_scrape.find_element(By.XPATH, '//*[@id="region-main"]')
 
-    location = responseT.location  
-    size = responseT.size  
-
-    page_to_scrape.execute_script("arguments[0].scrollIntoView(true);", responseT)
-
-    screenshot = page_to_scrape.get_screenshot_as_png()
-
-    image = Image.open(BytesIO(screenshot))
-
-    left = location['x']
-    top = location['y']
-    right = left + size['width']
-    bottom = top + size['height']
-
-    cropped_image = image.crop((left, top, right, bottom))
-
-    cropped_image.save('cs-baze-nova-obavestenja.png')
+    height = responseT.size['height']
+    width = responseT.size['width']     
+    desired_width = max(width, 1200)  
+    desired_height = min(height, 1000)
+    page_to_scrape.set_window_size(desired_width, desired_height)     
+    page_to_scrape.execute_script("arguments[0].scrollIntoView(true);", responseT)  
+    responseT.screenshot('cs-baze-nova-obavestenja.png')
 
 finally:
     page_to_scrape.quit()
