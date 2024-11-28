@@ -10,7 +10,7 @@ for url in WEBHOOK_URL:
 
     hook.send('**@everyone Nova obavestenja na CS-u!**')
     
-    image2_path = 'cs-bazef-nova-obavestenja.png'  
+    image2_path = 'cs-baze-nova-obavestenja.png'  
     
     hook.send(file=File(image2_path, name='cs-baze-nova-obavestenja.png'))
 
