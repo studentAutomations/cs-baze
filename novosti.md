@@ -7,10 +7,16 @@ General news and announcements
 4
 »
 Next page
-List of discussions. Showing 100 of 380 discussions
+List of discussions. Showing 100 of 381 discussions
 Status
 Discussion Started by Last post Replies
 Actions
+Kolokvijum P2 (2024/2025)
+Milena Frtunić Gligorijević
+29 Nov 2024
+Milena Frtunić Gligorijević
+29 Nov 2024
+0 1
 Kolokvijum P1 (2024/2025)
 Milena Frtunić Gligorijević
 7 Nov 2024
@@ -605,12 +611,6 @@ Miloš Bogdanović
 Miloš Bogdanović
 25 Aug 2020
 0
-Rezultati ispita - JUN 2020
-Leonid Stoimenov
-3 Jul 2020
-Nataša Veljković
-6 Jul 2020
-3
 1
 (current)
 2
