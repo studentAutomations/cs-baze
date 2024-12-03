@@ -690,4 +690,5 @@ Jump to...
                     Rešenja - VIDEO KLUB - ADO.NET (Command, DataReader)
                     VIDEO KLUB - ADO.NET (DataAdapter, DataSet, Transaction)
                     Rešenja - VIDEO KLUB - ADO.NET (DataAdapter, DataSet, Transaction)
+                    Rešenja ADO.NET V2
          Diskusija o predmetu ►
