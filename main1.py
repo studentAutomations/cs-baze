@@ -43,12 +43,12 @@ try:
     link_element.click()
     time.sleep(5)
 
-    responseT1 = page_to_scrape.find_element(By.XPATH, '/html/body/div[2]/div[2]/div/div[1]/section/div[1]/div[2]/table')
+    responseT = page_to_scrape.find_element(By.XPATH, '/html/body/div[2]/div[2]/div/div[1]/section/div[1]/div[2]/table')
 
-    novosti1_markdown = responseT1.text  
+    novosti_markdown = responseT1.text  
 
-    with open("novosti1.md", "w") as novosti1_file:
-        novosti1_file.write(novosti1_markdown)
+    with open("novosti1.md", "w") as novosti_file:
+        novosti_file.write(novosti_markdown)
 
 finally:
     page_to_scrape.quit()
