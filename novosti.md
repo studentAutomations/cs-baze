@@ -7,10 +7,16 @@ General news and announcements
 4
 »
 Next page
-List of discussions. Showing 100 of 381 discussions
+List of discussions. Showing 100 of 382 discussions
 Status
 Discussion Started by Last post Replies
 Actions
+Rezultati kolokvijuma P1 (2024/2025)
+Milena Frtunić Gligorijević
+3 Dec 2024
+Milena Frtunić Gligorijević
+3 Dec 2024
+0
 Kolokvijum P2 (2024/2025)
 Milena Frtunić Gligorijević
 29 Nov 2024
@@ -605,12 +611,6 @@ Miloš Bogdanović
 Miloš Bogdanović
 26 Aug 2020
 0
-Raspored studenata po salama u septembarskom ispitnom roku 2020. godine
-Miloš Bogdanović
-25 Aug 2020
-Miloš Bogdanović
-25 Aug 2020
-0
 1
 (current)
 2
@@ -626,6 +626,7 @@ Jump to...
                     Zadaci vežbe
                     Zadaci predavanja
                     Raspored studenata za polaganje kolokvijuma P1 (2024/2025)
+                    Rezultati kolokvijuma P1 (2024/2025)
                     Smerovi US i E - rezultati kolokvijuma P1
                     Smerovi US i E - rezutati kolokvijuma P2
                     #EER
