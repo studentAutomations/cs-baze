@@ -177,6 +177,7 @@ Jump to...
                     Zadaci vežbe
                     Zadaci predavanja
                     Raspored studenata za polaganje kolokvijuma P1 (2024/2025)
+                    Rezultati kolokvijuma P1 (2024/2025)
                     Smerovi US i E - rezultati kolokvijuma P1
                     Smerovi US i E - rezutati kolokvijuma P2
                     #EER
