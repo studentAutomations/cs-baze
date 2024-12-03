@@ -45,7 +45,7 @@ try:
 
     responseT = page_to_scrape.find_element(By.XPATH, '/html/body/div[2]/div[2]/div/div[1]/section/div[1]/div[2]/table')
 
-    novosti_markdown = responseT1.text  
+    novosti_markdown = responseT.text  
 
     with open("novosti1.md", "w") as novosti_file:
         novosti_file.write(novosti_markdown)
