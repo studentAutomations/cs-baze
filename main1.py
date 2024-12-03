@@ -43,7 +43,7 @@ try:
     link_element.click()
     time.sleep(5)
 
-    responseT = page_to_scrape.find_element(By.XPATH, '//*[@id="region-main"]')
+    responseT = page_to_scrape.find_element(By.XPATH, '/html/body/div[1]/div[2]/div/div[1]/section/div[1]/div[2]/table')
 
     novosti_markdown = responseT.text  
 
