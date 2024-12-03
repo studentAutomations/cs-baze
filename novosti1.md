@@ -241,4 +241,5 @@ Jump to...
                     Rešenja - VIDEO KLUB - ADO.NET (Command, DataReader)
                     VIDEO KLUB - ADO.NET (DataAdapter, DataSet, Transaction)
                     Rešenja - VIDEO KLUB - ADO.NET (DataAdapter, DataSet, Transaction)
+                    Rešenja ADO.NET V2
          Raspored studenata za laboratorijske vežbe 2024/2025 ►
