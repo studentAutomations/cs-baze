@@ -8,7 +8,7 @@ for url in WEBHOOK_URL:
     hook = Webhook(url)
 
     embed = Embed(
-        description="**@everyone**\n\n>>> [**CS link**](https://cs.elfak.ni.ac.rs/nastava/)",
+        description="**@everyone**\n\n>>> **[CS link](https://cs.elfak.ni.ac.rs/nastava/)**",
         color=0x3498DB
     )
     embed.set_image(url=f"attachment://{image2_path}")  
