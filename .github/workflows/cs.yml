@@ -58,5 +58,4 @@ jobs:
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
         env:
           WEBHOOK_MAIN: ${{ secrets.WEBHOOK_MAIN }}
-          WEBHOOK_OTHER1: ${{ secrets.WEBHOOK_OTHER1 }}
         run: python discordBOT.py
