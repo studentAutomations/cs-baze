@@ -8,7 +8,7 @@ for url in WEBHOOK_URL:
     hook = Webhook(url)
 
     embed = Embed(
-        description="**[CS link](https://cs.elfak.ni.ac.rs/nastava/)**",
+        description="**[CS link - click here -](https://cs.elfak.ni.ac.rs/nastava/)**",
         color=0x3498DB
     )
 
