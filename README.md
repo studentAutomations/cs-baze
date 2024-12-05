@@ -1,1 +1,1 @@
-**Web scraper za Baze Podataka**
+**Web scraper za Baze podataka**
