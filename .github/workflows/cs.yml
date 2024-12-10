@@ -26,11 +26,14 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libnss3 chromium-browser
 
-      # Step 4: Install Chromedriver and create symbolic link
-      - name: Install Chromedriver
+      # Step 4: Download and install Chromedriver manually
+      - name: Download and install Chromedriver
         run: |
-          sudo apt-get install -y chromedriver
-          sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+          CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/chromedriver
+          sudo chmod +x /usr/local/bin/chromedriver
 
       # Step 5: Verify Chromium and Chromedriver installation
       - name: Verify Chromium and Chromedriver installation
