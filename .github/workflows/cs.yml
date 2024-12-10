@@ -1,59 +1,77 @@
-name: cs baze scraper
+name: CS Baze Scraper
 
 on: 
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '*/1 * * * *'  # Run every minute
+  workflow_dispatch:  # Allow manual trigger
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
 
+    steps:
+      # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # Step 2: Setup Python environment
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y libnss3 libgconf-2-4
+      # Step 3: Install dependencies
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libnss3 libgconf-2-4 chromium-browser
 
+      # Step 4: Install Chromedriver and create symbolic link
+      - name: Install Chromedriver
+        run: |
+          sudo apt-get install -y chromedriver
+          sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+
+      # Step 5: Verify Chromium and Chromedriver installation
       - name: Verify Chromium and Chromedriver installation
         run: |
           echo "Checking Chromium installation..."
-          google-chrome --version
-          which google-chrome
-          
+          chromium-browser --version
+          which chromium-browser
+
           echo "Checking Chromedriver installation..."
           chromedriver --version
           which chromedriver
 
+      # Step 6: Install Python dependencies
       - name: Install Python packages
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      # Step 7: Run main Python script
       - name: Run main script
         env:
           MAIL: ${{ secrets.MAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
         run: python main.py
 
+      # Step 8: Commit changes to novosti.md
       - name: Commit changes
         uses: studentAutomations/automatic-changes@v4
         with:
           commit_message: Update novosti.md
-        id: auto-commit-action      
+        id: auto-commit-action
 
+      # Step 9: Take screenshot if changes detected
       - name: Take photo
+        if: steps.auto-commit-action.outputs.changes_detected == 'true'
         env:
           MAIL: ${{ secrets.MAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
-        if: steps.auto-commit-action.outputs.changes_detected == 'true'
         run: python takephoto.py
 
+      # Step 10: Notify via Discord bot
       - name: Discord bot notification
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
         env:
