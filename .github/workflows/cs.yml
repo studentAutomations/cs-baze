@@ -20,11 +20,11 @@ jobs:
         with:
           python-version: '3.9'
 
-      # Step 3: Install dependencies
+      # Step 3: Install system dependencies
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libnss3 libgconf-2-4 chromium-browser
+          sudo apt-get install -y libnss3 chromium-browser
 
       # Step 4: Install Chromedriver and create symbolic link
       - name: Install Chromedriver
