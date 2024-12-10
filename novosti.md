@@ -1,6 +1,6 @@
 Advanced search...
 Forums
-Search results: 75
+Search results: 76
 1
 (current)
 2
@@ -12,6 +12,12 @@ Search results: 75
 8
 »
 Next page
+News forum -> UUBP 2024/2025 rezultati kolokvijuma P1
+by Miloš Bogdanović - Tuesday, 10 December 2024, 12:02 PM
+Poštovane koleginice i kolege,
+Na sajtu predmeta su dostupni rezultati kolokvijuma P1 iz Uvoda u baze podataka.
+Permalink
+See this post in context
 News forum -> Rezultati kolokvijuma P1 (2024/2025)
 by Milena Frtunić Gligorijević - Tuesday, 3 December 2024, 11:26 AM
 Poštovane koleginice i kolege,
@@ -94,14 +100,6 @@ Upis ocena će biti obavljen u četvrtak 12.09.2024. godine u 9:30h u kancelarij
 Čestitke svima koji su položili ispit!
 
 
-Permalink
-See this post in context
-News forum -> Резултати испита - СЕПТЕМБАР
-by Leonid Stoimenov - Thursday, 29 August 2024, 12:09 PM
-У прилогу су резултати испита за испитни рок СЕПТЕМБАР.
-Упис оцена је у понедељак, 2.9.24. у 11:00 у просторији М2-2.
-Радове может да погледате у истом термину.
-SeptBP.pdf
 Permalink
 See this post in context
 1
