@@ -20,22 +20,13 @@ jobs:
         with:
           python-version: '3.9'
 
-      # Step 3: Install system dependencies
+      # Step 3: Install system dependencies (Chromium is already available in GitHub Actions)
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libnss3 chromium-browser
+          sudo apt-get install -y libnss3
 
-      # Step 4: Download and install Chromedriver manually
-      - name: Download and install Chromedriver
-        run: |
-          CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)
-          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/chromedriver
-          sudo chmod +x /usr/local/bin/chromedriver
-
-      # Step 5: Verify Chromium and Chromedriver installation
+      # Step 4: Verify Chromium installation (GitHub preinstalls Chromium)
       - name: Verify Chromium and Chromedriver installation
         run: |
           echo "Checking Chromium installation..."
@@ -46,27 +37,27 @@ jobs:
           chromedriver --version
           which chromedriver
 
-      # Step 6: Install Python dependencies
+      # Step 5: Install Python dependencies
       - name: Install Python packages
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 7: Run main Python script
+      # Step 6: Run main Python script
       - name: Run main script
         env:
           MAIL: ${{ secrets.MAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
         run: python main.py
 
-      # Step 8: Commit changes to novosti.md
+      # Step 7: Commit changes to novosti.md
       - name: Commit changes
         uses: studentAutomations/automatic-changes@v4
         with:
           commit_message: Update novosti.md
         id: auto-commit-action
 
-      # Step 9: Take screenshot if changes detected
+      # Step 8: Take screenshot if changes detected
       - name: Take photo
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
         env:
@@ -74,7 +65,7 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
         run: python takephoto.py
 
-      # Step 10: Notify via Discord bot
+      # Step 9: Notify via Discord bot
       - name: Discord bot notification
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
         env:
