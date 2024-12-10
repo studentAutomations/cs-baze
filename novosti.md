@@ -12,7 +12,7 @@ Search results: 75
 8
 »
 Next page
-News forum -> Rezultati P1 kolokvijuma (2024/2025)
+News forum -> Rezultati kolokvijuma P1 (2024/2025)
 by Milena Frtunić Gligorijević - Tuesday, 3 December 2024, 11:26 AM
 Poštovane koleginice i kolege,
 Rezultati kolokvijuma P1 objavljeni su na sajtu predmeta.
