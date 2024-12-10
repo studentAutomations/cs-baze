@@ -5,14 +5,17 @@ from selenium.webdriver.chrome.options import Options
 import time
 import os
 
+# Set up Chrome options
 chrome_options = Options()
 chrome_options.add_argument("--headless")  
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--disable-dev-shm-usage")
-chrome_options.binary_location = "/usr/bin/chromium-browser"  # Putanja za Chromium na GitHub runner-u
+chrome_options.binary_location = "/usr/bin/chromium-browser"  # Path to Chromium on GitHub runner
 
-browser_driver = Service('/usr/bin/chromedriver')  # Putanja za Chromedriver na GitHub runner-u
+# Specify the path to Chromedriver (preinstalled on GitHub Actions runner)
+browser_driver = Service('/usr/bin/chromedriver')  # Path to Chromedriver
 
+# Create a new instance of Chrome with the options and driver
 page_to_scrape = webdriver.Chrome(service=browser_driver, options=chrome_options)
 
 try:
@@ -24,12 +27,12 @@ try:
     time.sleep(2)
 
     mail = page_to_scrape.find_element(By.ID, "i0116")
-    mail.send_keys(os.environ['MAIL'])  
+    mail.send_keys(os.environ['MAIL'])  # Use environment variable for email
     page_to_scrape.find_element(By.ID, "idSIButton9").click()
     time.sleep(2)
 
     password = page_to_scrape.find_element(By.ID, "i0118")
-    password.send_keys(os.environ['PASSWORD'])  
+    password.send_keys(os.environ['PASSWORD'])  # Use environment variable for password
     page_to_scrape.find_element(By.ID, "idSIButton9").click()
     time.sleep(2)
 
