@@ -14,6 +14,7 @@ chrome_options.binary_location = "/usr/bin/google-chrome"  # Updated for GitHub 
 browser_driver = Service('/usr/bin/chromedriver')  # Updated for GitHub runner
 
 page_to_scrape = webdriver.Chrome(service=browser_driver, options=chrome_options)
+pageToScrape = webdriver.Chrome(service=browser_driver, options=chrome_options)
 
 try:
     page_to_scrape.get("https://cs.elfak.ni.ac.rs/nastava/")
@@ -36,14 +37,9 @@ try:
     page_to_scrape.find_element(By.ID, "idBtn_Back").click()
     time.sleep(2)
 
-    page_to_scrape.find_element(By.LINK_TEXT, "Baze").click()
-    time.sleep(2)
+    pageToScrape.get("https://cs.elfak.ni.ac.rs/nastava/mod/forum/search.php?id=4&words=&phrase=&notwords=&fullwords=&timefromrestrict=1&fromday=1&frommonth=1&fromyear=2023&fromhour=0&fromminute=0&hfromday=0&hfrommonth=0&hfromyear=0&hfromhour=0&hfromminute=0&htoday=1&htomonth=1&htoyear=1&htohour=1&htominute=1&forumid=&subject=&user=")
 
-    link_element = page_to_scrape.find_element(By.XPATH, "/html/body/div[1]/div[2]/div/div[1]/section/div/div/ul/li[1]/div[3]/ul/li[1]/div/div/div[2]/div/a")
-    link_element.click()
-    time.sleep(15)
-
-    responseT = page_to_scrape.find_element(By.XPATH, '/html/body/div[1]/div[2]/div/div[1]/section/div[1]/div[2]/table')
+    responseT = pageToScrape.find_element(By.XPATH, '//*[@id="region-main"]')
 
     height = responseT.size['height']
     width = responseT.size['width']     
