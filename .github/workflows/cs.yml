@@ -1,6 +1,6 @@
-name: CS Baze Scraper
+name: CS BP Scraper
 
-on: 
+on:
   schedule:
     - cron: '*/1 * * * *'  # Run every minute
   workflow_dispatch:  # Allow manual trigger
@@ -20,18 +20,18 @@ jobs:
         with:
           python-version: '3.9'
 
-      # Step 3: Install system dependencies (Chromium is already available in GitHub Actions)
-      - name: Install system dependencies
+      # Step 3: Install system dependencies
+      - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y libnss3
 
-      # Step 4: Verify Chromium installation (GitHub preinstalls Chromium)
+      # Step 4: Verify installations
       - name: Verify Chromium and Chromedriver installation
         run: |
           echo "Checking Chromium installation..."
-          chromium-browser --version
-          which chromium-browser
+          google-chrome --version
+          which google-chrome
 
           echo "Checking Chromedriver installation..."
           chromedriver --version
@@ -43,7 +43,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 6: Run main Python script
+      # Step 6: Run scraping script
       - name: Run main script
         env:
           MAIL: ${{ secrets.MAIL }}
