@@ -5,48 +5,55 @@ from selenium.webdriver.chrome.options import Options
 import time
 import os
 
-# Set up Chrome options
+# Chrome options
 chrome_options = Options()
-chrome_options.add_argument("--headless")  
+chrome_options.add_argument("--headless")
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--disable-dev-shm-usage")
-chrome_options.binary_location = "/usr/bin/chromium-browser"  # Path to Chromium on GitHub runner
+chrome_options.binary_location = "/usr/bin/google-chrome"
 
-# Specify the path to Chromedriver (preinstalled on GitHub Actions runner)
-browser_driver = Service('/usr/bin/chromedriver')  # Path to Chromedriver
+# Chrome driver setup
+browser_driver = Service('/usr/bin/chromedriver')
 
-# Create a new instance of Chrome with the options and driver
+# Start the browser
 page_to_scrape = webdriver.Chrome(service=browser_driver, options=chrome_options)
 
 try:
+    # Step 1: Navigate to the page
     page_to_scrape.get("https://cs.elfak.ni.ac.rs/nastava/")
     page_to_scrape.find_element(By.LINK_TEXT, "Log in").click()
     time.sleep(2)
 
+    # Step 2: Log in via OpenID Connect
     page_to_scrape.find_element(By.LINK_TEXT, "OpenID Connect").click()
     time.sleep(2)
 
+    # Step 3: Input email
     mail = page_to_scrape.find_element(By.ID, "i0116")
-    mail.send_keys(os.environ['MAIL'])  # Use environment variable for email
+    mail.send_keys(os.environ['MAIL'])  
     page_to_scrape.find_element(By.ID, "idSIButton9").click()
     time.sleep(2)
 
+    # Step 4: Input password
     password = page_to_scrape.find_element(By.ID, "i0118")
-    password.send_keys(os.environ['PASSWORD'])  # Use environment variable for password
+    password.send_keys(os.environ['PASSWORD'])  
     page_to_scrape.find_element(By.ID, "idSIButton9").click()
     time.sleep(2)
 
+    # Step 5: Click "No" on "Stay signed in" prompt
     page_to_scrape.find_element(By.ID, "idBtn_Back").click()
     time.sleep(2)
 
+    # Step 6: Navigate to the forum search page
     page_to_scrape.get("https://cs.elfak.ni.ac.rs/nastava/mod/forum/search.php?id=4&words=&phrase=&notwords=&fullwords=&timefromrestrict=1&fromday=1&frommonth=1&fromyear=2023&fromhour=0&fromminute=0&hfromday=0&hfrommonth=0&hfromyear=0&hfromhour=0&hfromminute=0&htoday=1&htomonth=1&htoyear=1&htohour=1&htominute=1&forumid=&subject=&user=")
     
+    # Step 7: Extract data and save it to a markdown file
     responseT = page_to_scrape.find_element(By.XPATH, '//*[@id="region-main"]')
-
-    novosti_markdown = responseT.text  
+    novosti_markdown = responseT.text
 
     with open("novosti.md", "w") as novosti_file:
         novosti_file.write(novosti_markdown)
 
 finally:
+    # Close the browser
     page_to_scrape.quit()
