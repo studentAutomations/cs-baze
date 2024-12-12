@@ -1,6 +1,6 @@
 Advanced search...
 Forums
-Search results: 76
+Search results: 77
 1
 (current)
 2
@@ -12,6 +12,25 @@ Search results: 76
 8
 »
 Next page
+News forum -> Kolokvijum P2 (2024/2025) -> Odgovor: Kolokvijum P2 (2024/2025)
+by Leonid Stoimenov - Thursday, 12 December 2024, 10:06 AM
+Poštovani studenti,
+
+Na osnovu obaveštenja od dekanskog kolegijuma Fakulteta, kao posledica odluke na plenumu studenata Fakulteta, trenutno ne postoje regularni uslovi za realizaciju nastavnih aktivnosti, uključujući ispite i kolokvijume.
+
+Obaveštavam vas da kolokvijum P2 neće da bude održan danas.
+Obavestiću vas na vreme o promenama i novom terminu polaganja.
+Permalink
+Show parent
+See this post in context
+News forum -> Kolokvijum P2 (2024/2025)
+by Milena Frtunić Gligorijević - Friday, 29 November 2024, 3:36 PM
+Poštovane koleginice i kolege,
+Kolokvijum P2 iz predmeta Baze podataka biće održan u četvrtak 12.12.2024. godine.
+
+
+Permalink
+See this post in context
 News forum -> UUBP 2024/2025 rezultati kolokvijuma P1
 by Miloš Bogdanović - Tuesday, 10 December 2024, 12:02 PM
 Poštovane koleginice i kolege,
@@ -25,14 +44,6 @@ Rezultati kolokvijuma P1 objavljeni su na sajtu predmeta.
 Radove sa kolokvijuma P1 možete da pogledate u sredu 04.12.2024. godine u sledećim terminima:
 grupa 1 i grupa 3-2 mogu da pogledaju rad u 11h u kancelariji 331,
 grupa 2 i grupa 3-1 mogu da pogledaju rad u 11h u kancelariji M2-2.
-Permalink
-See this post in context
-News forum -> Kolokvijum P2 (2024/2025)
-by Milena Frtunić Gligorijević - Friday, 29 November 2024, 3:36 PM
-Poštovane koleginice i kolege,
-Kolokvijum P2 iz predmeta Baze podataka biće održan u četvrtak 12.12.2024. godine.
-
-
 Permalink
 See this post in context
 News forum -> Kolokvijum P1 (2024/2025)
@@ -90,16 +101,6 @@ by Leonid Stoimenov - Thursday, 19 September 2024, 2:26 PM
 Упис оцена је у понедељак, 23.9.24. у 13:00 у просторији М2-2.
 Радове можете да погледате у истом термину.
 OktBP.pdf
-Permalink
-See this post in context
-News forum -> Smerovi US, T i E - rezultati ispita, oktobar 2024. godine
-by Miloš Bogdanović - Wednesday, 11 September 2024, 1:13 PM
-Poštovane koleginice i kolege,
-Objavljeni su rezultati ispitnog roka oktobar 2024. godine.
-Upis ocena će biti obavljen u četvrtak 12.09.2024. godine u 9:30h u kancelariji 2 na M2.
-Čestitke svima koji su položili ispit!
-
-
 Permalink
 See this post in context
 1
