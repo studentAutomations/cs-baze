@@ -21,27 +21,27 @@ page_to_scrape = webdriver.Chrome(service=browser_driver, options=chrome_options
 try:
     # Step 1: Navigate to the page
     page_to_scrape.get("https://cs.elfak.ni.ac.rs/nastava/")
-    page_to_scrape.find_element(By.LINK_TEXT, "Log in").click()
+    page_to_scrape.find_element(By.XPATH, "/html/body/div[1]/nav/ul[2]/li[2]/div/span/a").click()
     time.sleep(2)
 
     # Step 2: Log in via OpenID Connect
-    page_to_scrape.find_element(By.LINK_TEXT, "OpenID Connect").click()
+    page_to_scrape.find_element(By.XPATH, "/html/body/div[2]/div[2]/div/div/section/div/div[2]/div/div/div/div/div/div[2]/div[3]/div/a").click()
     time.sleep(2)
 
     # Step 3: Input email
-    mail = page_to_scrape.find_element(By.ID, "i0116")
+    mail = page_to_scrape.find_element(By.XPATH, '//*[@id="i0116"]')
     mail.send_keys(os.environ['MAIL'])  
-    page_to_scrape.find_element(By.ID, "idSIButton9").click()
-    time.sleep(2)
+    page_to_scrape.find_element(By.XPATH, '//*[@id="idSIButton9"]').click()
+    time.sleep(2)   
 
     # Step 4: Input password
-    password = page_to_scrape.find_element(By.ID, "i0118")
+    password = page_to_scrape.find_element(By.XPATH, '//*[@id="i0118"]')
     password.send_keys(os.environ['PASSWORD'])  
-    page_to_scrape.find_element(By.ID, "idSIButton9").click()
+    page_to_scrape.find_element(By.XPATH, '//*[@id="idSIButton9"]').click()
     time.sleep(2)
 
     # Step 5: Click "No" on "Stay signed in" prompt
-    page_to_scrape.find_element(By.ID, "idBtn_Back").click()
+    page_to_scrape.find_element(By.XPATH, '//*[@id="idBtn_Back"]').click()
     time.sleep(2)
 
     # Step 6: Navigate to the forum search page
